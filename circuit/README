@@ -1,0 +1,153 @@
+****************
+
+* Circuit Tracer
+* CS221
+* 30 April 2021
+* Kyle Hanson
+
+**************** 
+
+Overview:
+
+****************
+
+The program reads in circuit board files,  and searches for the shortest paths between start and end points on
+ 
+the circuit board. It reads data from an input file using a stack or queue, and displays the output to
+
+the console. This is achieved by taking in command-line arguments from the user.
+
+****************
+
+Included files:
+
+****************
+
+CircuitBoard.java - Source file.
+CircuitTracer.java - Source file.
+CircuitTracerTester.java - Source file.
+InvalidFileFormatException.java - Source file.
+Storage.java - Source file.
+TraceState.java - Source file.
+OccupiedPositionException.java - Source file.
+README - This file.
+
+*****************
+
+Compiling and running:
+
+*****************
+
+$ javac CircuitTracer.java
+
+To run the program with stack implementation and print output to the console
+
+$ java CircuitTracer -s -c input.dat
+
+To run the program with queue implementation and print output to the console
+
+$ java CircuitTracer -q -c input.dat
+
+******************
+
+Design:
+
+******************
+
+The driver class for the program is CircuitTracer. When an input file is provided to the program, 
+
+it parses the file and generates an object of the CircuitBoard class. The program also validates if
+
+that the file is formatted correctly. When the program finds a valid file, it starts tracing the states
+
+by finding open states adjacent to the starting point. It continues building the path until it reaches 
+
+the ending point. The traces are stored in a Storage object which, depending on user console input, 
+
+will use an underlying data structure of stack or queue.
+
+	After the tracing is done for all the valid states, it determines the shortest path and stores it in 
+	
+an ArrayList. The output is shown on the console. In this case, the GUI is a valid cmd line argument, but is
+
+not implemented. InvalidFileFormatException gets thrown when the input file is not formatted correctly. 
+
+The FileNotFound exception is thrown if the program cannot find the file input to the command line.
+
+*******************
+
+Analysis:
+
+*******************
+
+Stack or queue configurations of this program affect the path sequence in multiple ways.  Primarily, stack 
+
+configurations uses a last in first out approach and a queue uses a first in first out approach to tracing.  
+
+This means that during the course of the tracing algorithm, both a stack and q will store the three starting
+
+states first.  From here, the configurations differ, as the stack will examine the state stored last.  The algorithm
+
+will then generate the next possible move, and put that move on the top of the stack.This continues until the
+
+algorithm finds a solution state.  The stack configuration will go back to the next original starting state and repeat
+
+the process. This means that stack configuration explores every possible path to find the solutions.  In contrast, 
+
+a queue based search checks state one first, and evaluates next possible moves.  It then evaluates state two, because
+
+each corresponding state is added to the rear.  This continues until solutions are found.  The difference here, is 
+
+that the first time the algorithm finds a solution it will be the best solution.  At any certain time, a stack will
+
+use much more storage, because it is storing so many more search states at one time.  A stack will, however, be more 
+
+likely to find a solution first, the program just won't know if it's the best solution.  Here, the queue based
+
+configuration shines.  Once the queue configuration finds a solution it is guaranteed to be the best.  Big-Oh runtime
+
+for each is O(n), however stack based configurations will take longer because they need to go through every possible
+
+path, whereas the queue can stop once it's found the first solution. N reflects the number of possible paths the 
+
+algorithm can explore.  The primary input factor that increases the difficulty of the task is the number of starting 
+
+states.
+
+*****************
+
+Testing:
+
+*****************
+
+To test the program, I used the provided CircuitTracerTester.
+
+In addition to that, I also had to ensure that the output generated for the sample circuit files matched the
+
+expected board configurations. While running the program for the files, I had to fix some of the logic, especially
+
+in the last else statement of my CircuitTracer class.  I was originally using a point to figure out the valid next
+
+TraceState objects.  My starting and ending points seemed to off by one or two spaces, so that told me that these
+
+next states weren't being initialized correctly.  Additionally I found that I was incrementing my columns in the wrong
+
+place in my CircuitBoard class.  I validated my program for all invalid files as well. By looking at the 
+
+invalid.dat.out files, I was able to implement exception handling into my program correctly.
+
+*****************
+
+Discussion:
+
+*****************
+
+This project was challenging! I felt that the instructions weren't very clear. Especially for some of the
+
+exceptions in the command line arguments.  Very confusing when the tester tells me 'java CircuitTracer' is not 
+
+in my usage statement, but it is one of the first lines there. It took me a while to understand how the search 
+
+algorithm works. To understand the logic, I had to write it out, look for other sources, and read all the provided
+
+javadocs. 
