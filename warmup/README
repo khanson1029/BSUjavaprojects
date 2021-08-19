@@ -1,0 +1,79 @@
+****************
+* Project 0/warmup
+* Class CS221
+* Date	22 January 2021		
+* Kyle Hanson
+**************** 
+
+OVERVIEW:
+
+This program reads a .txt file, scans the file, and converts the contents into a two dimensional array.
+The numbers in the array are then mathematically manipulated to the specifications in the project layout.
+
+
+
+INCLUDED FILES:
+
+ List the files required for the project with a brief
+ explanation of why each is included.
+
+ e.g.
+ * GridMonitorTest.java - This program tests my driver class.
+ * GridMonitorInterface.java - My driver class implements this interface.
+ * GridMonitor.java - This is my driver class.
+ * negatives. txt, oneByOne.txt, sample.txt, sample4x5.txt, sampleDoubles.txt, wideRange.txt - These are the text files containing the numbers that my driver class must read, scan, and manipulate. 
+ * README - this file
+
+
+COMPILING AND RUNNING:
+
+ From the directory containing all source files, compile the test
+ class (and all dependent classes) with the command:
+ $ javac GridMonitorTest.java
+
+ Run the compiled GridMonitorTest class with the command:
+ $ java GridMonitorTest
+
+ Console output will report which tests GridMonitor.java passed or failed.
+ 
+
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+My program design was straightforward.  I planned a constructor that would take in the provided text files
+and store them in a two dimensional array.  For each method my idea was to make a copy of the array from the constructor
+to enforce encapsulation.  After the array was created I wanted to make a variable to store the sums.  This became result.
+I then added the copy array with the correct sum values to the copied array and returned that array.  I used this logic for
+every method in my program.  I added the correct mathematical formulas to the end of the logic for each different method.
+I also used absolute values to deal with the negatives.txt file, and a boolean two dimensional array to deal with the 
+danger values.
+
+TESTING:
+
+GridMonitorTest was the primary mechanism for testing GridMonitor. GridMonitorTest was
+ written before GridMonitor, so test-driven development helped ensure that
+ all GridMonitor functionality was being tested from the start.
+
+ Scenarios being tested by GridMonitorTest include:
+		
+		*If GridMonitor can return the basic numbers in a text file.
+		*If GridMonitor can add the surrounding four values of that number.
+		*If GridMonitor can average that sum.
+		*If GridMonitor can divide that number by two to come up with "delta values."
+		*If GridMonitor can use the calculated "delta" values to come up with a range of acceptable 
+		values in which the base numbers can resides		
+		*If GridMonitor notices a base number outside the designated range, GridMonitor should give a 
+		table of boolean values in which "true" designates a "dangerous" value and "false" indicates a functioning value.
+		
+DISCUSSION:
+ 
+ I encountered numerous problems during the course of this project.  These problems
+ probably stemmed from a lack of understanding about array's, as this was one of the
+ last topics we covered in CS 121.  Initially I re-learned how to create a double array
+ using nested for loops.  Later on in the programming process I struggled with the logic
+ for summing up the numbers surrounding my base numbers.  My main take away from this 
+ was that I need to think about using the variables for rows and columns to find the positions
+ I need to add.  Throughout this process, the basics were beginning to click for me and I have 
+ a better understanding of where pieces of code should go in the context of the larger program.
+ My biggest challenge moving forward will be to fully think through the logic before starting
+ to write code.
