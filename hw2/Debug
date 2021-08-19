@@ -1,0 +1,12 @@
+My first step was running ArraySet.java to see which items were the first to fail.
+The first failed test was in the new empty set methods.
+I fixed this by setting rear as 0.
+The next problems seem to be with the remove method.
+I set breakpoints at line 179 in the SetTester.java but had a hard time seeing exactly what the issue was.
+From the errors appearing in my ArraySet I saw that the program was giving a null pointer exception.
+My fix was to include upper bounds for i +1.
+After this I moved on to the add method.  The errors came back with a no such elements exception.
+To fix this I added ++ to the rear variable after the given if statements, so that multiple elements could be added on.
+These were all the changes I made. 
+I had difficulty figuring out how to best use the debugger and most of my insights came from reading which tests failed and thinking about why they were failing.
+I failed four tests but was never able to figure out why.
