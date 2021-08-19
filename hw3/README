@@ -1,0 +1,78 @@
+****************
+* Project 2/Exceptions
+* Class CS221
+* Date	15 February 2021		
+* Kyle Hanson
+**************** 
+
+OVERVIEW:
+
+This program reads a .dat file, scans the file, and determines whether the contents of the two dimensional array
+exhibit any of the exceptions stated in the homework description. 
+
+
+INCLUDED FILES:
+
+ List the files required for the project with a brief
+ explanation of why each is included.
+
+ e.g.
+ * FormatChecker.java - The only java class for this project.  Includes my main method
+ * invalid1.dat-invalid7.dat, valid1.dat-valid3.dat - These are the files used to test FormatChecker for the proper identification of exceptions.
+ * README - this file
+
+
+COMPILING AND RUNNING:
+
+ From the directory containing all source files, compile the test
+ class (and all dependent classes) with the command:
+ $ javac FormatChecker.java
+
+ Run the compiled GridMonitorTest class with the command:
+ $ java FormatChecker arg0 arg1 arg2 etc...
+
+ Console output will report which files are valid, and which are invalid.
+ 
+
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+My program design was straightforward.  I decided to use just a main method underneath the public class FormatChecker.  
+There were not a lot of abstract ideas for this project that would have made the use of other classes or methods necessary.
+The program design is based of a conditional that determines whether a command line argument has been given or not.
+If an argument has been received, the program then enters a loop that runs as long as there are lines left within the file.
+Within the main loop, there are smaller conditionals to test for the exceptions specified in the homework instructions.
+
+TESTING:
+
+FormatChecker was the primary mechanism for testing the files that were provided.
+If a file was valid, FormatChecker returned the name of the file and "VALID" underneath. 
+If a file was invalid, FormatChecker needed to return the reason why.  If this reason was not clear on the 
+output, I knew that FormatChecker was incomplete.
+
+ Scenarios being tested by FormatChecker include:
+		
+		* Improper file dimensions - if more than a 2d array was given in the file
+		* If a file had more rows or columns than the initial line displayed
+		* If a file (or row/column header) contained a character that was not a real number
+		* Whether or not arguments were given in the command line
+		* If the file specified in an argument exists
+DISCUSSION:
+ 
+ I encountered numerous problems during the course of this project.  These problems
+ were mostly due to conceptually understanding where the scanner was in the project, and
+ how to specify conditional statements to look for unrecognized data types.  I used knowledge gained from
+ Assignment 1 to iterate through the different rows of the array and found that I could use .matches() along
+ with the correct regex values to search for characters within the row that contained only positive or negative
+ numbers, along with decimal points. Later on in the programming process I struggled with where to put my catch
+ statements, until I realized that I could stack catch and finally statements on top of each other.
+ Throughout this process, the basics were beginning to click for me and I have  a better understanding 
+ of where pieces of code should go in the context of the larger program. My biggest challenge moving forward
+ remains fully thinking through the logic of my program before starting to write code.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
