@@ -1,7 +1,7 @@
 /** 
  * Class for testing the LLCache implementation of a doubly linked list cache
  * 
- * @author Kyle Hanson
+ * @author Kyle Hanso
  */
 
 import java.io.*;
