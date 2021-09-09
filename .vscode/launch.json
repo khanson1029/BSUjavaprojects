@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ["2", "1000", "5000", "Encyclopedia.txt"]
+            //"args": ["2", "5", "14", "small.txt"]
+        },
+        {
+            "type": "java",
+            "name": "Launch CacheTest",
+            "request": "launch",
+            "mainClass": "CacheTest",
+            "args": ["2", "1000", "5000", "Encyclopedia.txt"],
+           // "args": ["2", "5", "14", "small.txt"]
+            "projectName": "Project1_a8868763"
+        }
+    ]
+}
